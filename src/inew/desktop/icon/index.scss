@@ -1,0 +1,58 @@
+$title-height: 24px;
+.icon {
+    padding: var(--desktop-icon-gap-y) var(--desktop-icon-gap-x);
+    &:global(.size-1x1) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    &:global(.size-1x2) {
+        grid-column: span 2;
+        grid-row: span 1;
+        .iconInner {
+            width: calc(var(--desktop-icon-size) * 2 - var(--desktop-icon-gap-x) * 2);
+        }
+    }
+    &:global(.size-2x2) {
+        grid-column: span 2;
+        grid-row: span 2;
+        .iconInner {
+            width: calc(var(--desktop-icon-size) * 2 - var(--desktop-icon-gap-x) * 2);
+            height: calc(var(--desktop-icon-size) * 2 - var(--desktop-icon-gap-y) * 2);
+        }
+    }
+    &:global(.size-2x4) {
+        grid-column: span 4;
+        grid-row: span 2;
+        .iconInner {
+            width: calc(var(--desktop-icon-size) * 4 - var(--desktop-icon-gap-x) * 2);
+            height: calc(var(--desktop-icon-size) * 2 - var(--desktop-icon-gap-y) * 2);
+        }
+    }
+
+    .iconInner {
+        width: calc(var(--desktop-icon-size) - var(--desktop-icon-gap-x) * 2);
+        height: calc(var(--desktop-icon-size) - var(--desktop-icon-gap-x) * 2);
+        .iconContainer {
+            height: calc(100% - $title-height);
+            width: calc(100% - $title-height);
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            .image {
+                width: 100%;
+                height: 100%;
+                background: center center no-repeat;
+                background-size: contain;
+            }
+        }
+        .title {
+            height: $title-height;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 0 5px rgba(0,0,0,0.5);
+        }
+    }
+}

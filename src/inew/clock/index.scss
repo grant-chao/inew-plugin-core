@@ -1,0 +1,24 @@
+.clock {
+    .time {
+        opacity: 0.95;
+        :global {
+            .react-digital__body span {
+                background-color: white;
+                border-color: white;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3);
+            }
+            .react-digital__body[data-digital=":"]:before, .react-digital__body[data-digital=":"]:after {
+                background-color: white;
+            }
+        }
+    }
+    .date {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgba(255,255,255,0.9);
+        padding-top: 10px;
+        font-size: 16px;
+        text-shadow: 0 0 5px rgba(0,0,0,0.5);
+    }
+}

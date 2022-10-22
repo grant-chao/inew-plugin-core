@@ -1,0 +1,40 @@
+.desktop {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 80px;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    flex-direction: column;
+    .clock, .apps {
+        width: 100%;
+    }
+    .clock {
+        padding: 30px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .apps {
+        max-width: 1200px;
+        margin: 0 auto;
+        max-height: calc(100vh - 80px - 120px);
+        overflow: auto;
+        scrollbar-width: none; /* firefox */
+        -ms-overflow-style: none; /* IE 10+ */
+        &::-webkit-scrollbar {
+            display: none; /* Chrome Safari */
+        }
+        .appIcons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, var(--desktop-icon-size));
+            grid-template-rows: repeat(auto-fill, var(--desktop-icon-size));
+            grid-auto-flow: dense;
+            position: relative;
+            justify-content: center;
+        }
+    }
+}

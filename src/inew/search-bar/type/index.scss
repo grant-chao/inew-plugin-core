@@ -1,0 +1,47 @@
+.type {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    i {
+        color: rgba(255,255,255,0.7);
+    }
+    :global {
+        .inew-down {
+            font-size: 12px;
+        }
+    }
+}
+
+.item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .icon {
+        width: 18px;
+        height: 18px;
+        background: center center no-repeat;
+        background-size: 100% 100%;
+        margin: 0 5px 0 0;
+    }
+    :global {
+        .type-baidu {
+            background-image: url("inew-plugin-core/image/search/type/baidu.svg");
+        }
+        .type-bing {
+            background-image: url("inew-plugin-core/image/search/type/bing.svg");
+        }
+        .type-google {
+            background-image: url("inew-plugin-core/image/search/type/google.svg");
+        }
+        .type-github {
+            background-image: url("inew-plugin-core/image/search/type/github.svg");
+        }
+    }
+    .title {
+        min-width: 50px;
+    }
+}
+
+.menus {
+    margin-top: 6px;
+}

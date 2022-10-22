@@ -1,0 +1,50 @@
+.taskBar {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 30px;
+    transform: translate(-50%, 0);
+    backdrop-filter: blur(4px);
+    .item {
+        width: var(--task-bar-icon-size);
+        height: var(--task-bar-icon-size);
+        margin: 0 5px;
+        position: relative;
+        cursor: pointer;
+        .taskIcon {
+            opacity: 0.7;
+        }
+        .status {
+            height: 3px;
+            left: 8px;
+            right: 8px;
+            border-radius: 2px;
+            background: rgba(255,255,255,0.9);
+            position: absolute;
+            bottom: -5px;
+            display: none;
+        }
+        &:hover {
+            .taskIcon {
+                opacity: 1;
+            }
+        }
+        &.active {
+            .status {
+                display: block;
+            }
+            .taskIcon {
+                opacity: 1;
+            }
+        }
+    }
+
+    &.hide {
+        display: none;
+    }
+}

@@ -1,0 +1,54 @@
+@import "../variable.scss";
+
+.header {
+    transition: all 300ms;
+    * {
+        transition: all 300ms;
+    }
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0) 80%);
+    height: $header-height;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    .left, .right {
+        padding: 10px;
+        height: 56px;
+    }
+    .left {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        .actionButton {
+            margin-right: 5px;
+        }
+    }
+    .right {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .actionButton {
+            margin-left: 5px;
+        }
+    }
+    .actionButton {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        border-radius: 4px;
+        i {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+        }
+        &:hover {
+            background: rgba(255,255,255,0.2);
+            i {
+                color: white;
+            }
+        }
+    }
+}

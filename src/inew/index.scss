@@ -1,0 +1,15 @@
+$react-digital-options: (
+    font-size: 26px
+);
+
+:global {
+    @import '~@feizheng/react-digital/dist/style.scss';
+    @import '~@feizheng/react-digital-numeric/dist/style.scss';
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    position: relative;
+}
+

@@ -1,0 +1,13 @@
+@import "../variable.scss";
+
+.wallpaper {
+    background: center center no-repeat url("../image/default/wallpaper.png");
+    background-size: cover;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $main-index;
+}
