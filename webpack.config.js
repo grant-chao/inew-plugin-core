@@ -14,6 +14,7 @@ const webpackConfig = {
     mode:'development',
     target: 'web', //必须添加此配置，才能实现浏览器的实时刷新
     devServer: {
+        static: true,
         port: 3000,
         // contentBase: resolve('./public'),  //当存在静态资源时，此项必须有。指向开发的静态资源目录，配合url-loader的outPath，匹配文件中的静态资源引用地址
         open: true,    //启动后是否在浏览器自动打开
@@ -43,7 +44,7 @@ const webpackConfig = {
                 }
             },
             {
-                test: /\.(css|scss)$/,
+                test: /\.scss$/,
                 exclude: /node_modules/,
                 use: [
                     isDevelopment ? 'style-loader' : {
@@ -60,14 +61,24 @@ const webpackConfig = {
                     {
                         loader: 'sass-loader',
                         options: {
-                            implementation: require('sass')
+                            implementation: require('sass'),
                         },
                     }
                 ],
             },
             {
                 test: /\.css$/,
+                use: [
+                    isDevelopment ? 'style-loader' : {
+                        loader: MiniCssExtractPlugin.loader,
+                    },
+                    'css-loader'
+                ],
+            },
+            {
+                test: /\.css$/,
                 loader: 'postcss-loader',
+                exclude: /node_modules/,
                 options: {
                     postcssOptions: {
                         plugins: [
@@ -76,26 +87,20 @@ const webpackConfig = {
                     },
                 },
             },
-            //loader-image
             {
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-                exclude: /node_modules/,
-                include: [resolve('./public/images')],
-                loader: 'url-loader',
-                options: {
-                    limit: 8192,
-                    name: '[name].[ext]',
-                    outputPath: '/images'
-                }
-            },
-            //loader-font
-            {
-                test: /\.(woff|eot|ttf|svg|gif)$/,
-                loader: 'url-loader',
-                options: {
-                    limit: 8192,
-                    name: 'font/[name].[ext]'
-                }
+                test: /\.(png|jpg|gif|jpeg)$/,
+                type: 'javascript/auto', // webpack 5 需要
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 10240,
+                            esModule: false,
+                            name: 'assets/[name].[ext]'
+                        }
+                    }
+                ],
+                exclude: /node_modules/
             }
         ]
     },

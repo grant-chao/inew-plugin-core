@@ -8,3 +8,13 @@ $wallpaper-index: 1;
 $main-index: 10;
 
 $header-height: 100px;
+
+:global {
+    :root {
+        --desktop-icon-size: 80px;
+        --desktop-icon-gap-x: 0px;
+        --desktop-icon-gap-y: 0px;
+        --task-bar-icon-size: 36px;
+        --task-bar-icon-gap: 0px;
+    }
+}
